@@ -60,3 +60,27 @@ extension Task: TaskType {
         cancellation()
     }
 }
+
+extension Task {
+    /// Create a task whose `upon(_:body:)` method uses the result of `base`.
+    public init<Task: FutureType where Task.Value: ResultType, Task.Value.Value == SuccessValue>(_ base: Task, cancellation: Cancellation = {}) {
+        self.init(base.map {
+            Value(with: $0.extract)
+        }, cancellation: cancellation)
+    }
+
+    /// Wrap an operation that has already completed with `value`.
+    public init(value: Result) {
+        self.init(Future(value: value), cancellation: { _ in })
+    }
+
+    /// Create a task that will never complete.
+    public init() {
+        self.init(Future(), cancellation: {})
+    }
+
+    /// Create a task having the same underlying operation as the `other` task.
+    public init(_ other: Task<SuccessValue>) {
+        self.init(other.future, cancellation: other.cancellation)
+    }
+}
