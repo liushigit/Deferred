@@ -14,7 +14,7 @@ private let testTimeout = 2.0
 // Should this be promoted to an initializer on Future?
 private func delay<Value>(@autoclosure(escaping) value: Void -> Value, by interval: NSTimeInterval) -> Future<Value> {
     let d = Deferred<Value>()
-    after(interval, upon: Deferred<Value>.genericQueue) { 
+    afterDelay(interval, upon: Deferred<Value>.genericQueue) {
         d.fill(value())
     }
     return Future(d)
