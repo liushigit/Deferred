@@ -28,7 +28,7 @@ public struct IgnoringFuture<Base: FutureType>: FutureType {
     ///
     /// If the event is already completed, the closure will be submitted to the
     /// `executor` immediately.
-    public func upon(executor: ExecutorType, body: () -> Void) {
+    public func upon(_ executor: ExecutorType, body: () -> Void) {
         base.upon(executor) { _ in body() }
     }
     
@@ -38,7 +38,7 @@ public struct IgnoringFuture<Base: FutureType>: FutureType {
     ///
     /// - parameter time: A length of time to wait for event to complete.
     /// - returns: Nothing, if filled within the timeout, or `nil`.
-    public func wait(time: Timeout) -> ()? {
+    public func wait(_ time: Timeout) -> ()? {
         return base.wait(time).map { _ in }
     }
 }
