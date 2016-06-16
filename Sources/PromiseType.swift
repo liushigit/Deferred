@@ -33,7 +33,7 @@ public protocol PromiseType {
     ///
     /// - parameter value: A resolved value for the instance.
     /// - returns: Whether the promise was fulfilled with `value`.
-    func fill(value: Value) -> Bool
+    @discardableResult
     func fill(_ value: Value) -> Bool
 }
 
