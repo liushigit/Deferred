@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SpinLock Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    <meta property="og:site_name" content="Deferred Programming Guide">
+<meta property="og:description" content="An implementation of OCaml's Deferred for Swift. It lets you work with values that haven't been determined yet, like an array that's coming later from a web service call.">
+<meta property="og:image" content="//www.bignerdranch.com/img/bnr-logo-square.png">
+<link rel="shortcut icon" type="image/x-icon" href="//www.bignerdranch.com/favicon.png">
+
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/SpinLock" class="dashAnchor"></a>
+
+    <a title="SpinLock Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Deferred Docs
+        </a>
+        
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/bignerdranch/Deferred">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Fbignerdranch%2Egithub%2Eio%2FDeferred%2Fdocsets%2FDeferred%2Exml">
+            <img class="header-icon" src="../img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Deferred Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      SpinLock Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Futures and Promises.html">Futures and Promises</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Deferred.html">Deferred</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/FutureType.html">FutureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/PromiseType.html">PromiseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Timeout.html">Timeout</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Transforming Future.html">Transforming Future</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/Future.html">Future</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/CollectionType.html">CollectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/SequenceType.html">SequenceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/IgnoringFuture.html">IgnoringFuture</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Controlling Where Callbacks Execute.html">Controlling Where Callbacks Execute</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ExecutorType.html">ExecutorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/NSOperationQueue.html">NSOperationQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/NSRunLoop.html">NSRunLoop</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/CFRunLoop.html">CFRunLoop</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Coordinating Access to Data.html">Coordinating Access to Data</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/LockProtected.html">LockProtected</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/ReadWriteLock.html">ReadWriteLock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Coordination Primitives.html">Coordination Primitives</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/DispatchLock.html">DispatchLock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/SpinLock.html">SpinLock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CASSpinLock.html">CASSpinLock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PThreadReadWriteLock.html">PThreadReadWriteLock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>SpinLock</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">SpinLock</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ReadWriteLock.html">ReadWriteLock</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A spin lock provided by Darwin, the low-level system under iOS and OS X.</p>
+
+<p>A spin lock polls to check the state of the lock, which is much faster
+when there isn&rsquo;t contention but rapidly slows down otherwise.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Deferred8SpinLockcFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Deferred8SpinLockcFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allocate a normal spinlock.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Deferred8SpinLock12withReadLockurFzFzT_xx"></a>
+                    <a name="//apple_ref/swift/Method/withReadLock(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Deferred8SpinLock12withReadLockurFzFzT_xx">withReadLock(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Call <code>body</code> with a lock.
+- parameter body: A function that reads a value while locked.
+- returns: The value returned from the given function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">withReadLock</span><span class="o">&lt;</span><span class="kt">Return</span><span class="o">&gt;</span><span class="p">(</span><span class="kd">@noescape</span> <span class="nv">body</span><span class="p">:</span> <span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Return</span><span class="p">)</span> <span class="k">rethrows</span> <span class="o">-&gt;</span> <span class="kt">Return</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A function that reads a value while locked.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The value returned from the given function.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8Deferred8SpinLock21withAttemptedReadLockurFzFzT_xGSqx_"></a>
+                    <a name="//apple_ref/swift/Method/withAttemptedReadLock(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8Deferred8SpinLock21withAttemptedReadLockurFzFzT_xGSqx_">withAttemptedReadLock(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempt to call <code>body</code> with a lock.
+- returns: The value returned from <code>body</code>, or <code>nil</code> if already locked.
+- seealso: withReadLock(_:)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">withAttemptedReadLock</span><span class="o">&lt;</span><span class="kt">Return</span><span class="o">&gt;</span><span class="p">(</span><span class="kd">@noescape</span> <span class="nv">body</span><span class="p">:</span> <span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Return</span><span class="p">)</span> <span class="k">rethrows</span> <span class="o">-&gt;</span> <span class="kt">Return</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The value returned from <code>body</code>, or <code>nil</code> if already locked.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>© 2014-2016 <a class="link" href="//www.bignerdranch.com" target="_blank" rel="external">Big Nerd Ranch</a> under <a class="link" href="//github.com/bignerdranch/Deferred/blob/master/LICENSE.txt" target="_blank" rel="external">MIT license</a>.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

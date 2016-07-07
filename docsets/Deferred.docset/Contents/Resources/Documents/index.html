@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Deferred  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    <meta property="og:site_name" content="Deferred Programming Guide">
+<meta property="og:description" content="An implementation of OCaml's Deferred for Swift. It lets you work with values that haven't been determined yet, like an array that's coming later from a web service call.">
+<meta property="og:image" content="//www.bignerdranch.com/img/bnr-logo-square.png">
+<link rel="shortcut icon" type="image/x-icon" href="//www.bignerdranch.com/favicon.png">
+
+  </head>
+  <body>
+
+
+    <a title="Deferred  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          Deferred Docs
+        </a>
+        
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/bignerdranch/Deferred">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Fbignerdranch%2Egithub%2Eio%2FDeferred%2Fdocsets%2FDeferred%2Exml">
+            <img class="header-icon" src="img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">Deferred Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Deferred  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Futures and Promises.html">Futures and Promises</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Deferred.html">Deferred</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/FutureType.html">FutureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/PromiseType.html">PromiseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/Timeout.html">Timeout</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Transforming Future.html">Transforming Future</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Future.html">Future</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/CollectionType.html">CollectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/SequenceType.html">SequenceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/IgnoringFuture.html">IgnoringFuture</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Controlling Where Callbacks Execute.html">Controlling Where Callbacks Execute</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ExecutorType.html">ExecutorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/NSOperationQueue.html">NSOperationQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/NSRunLoop.html">NSRunLoop</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/CFRunLoop.html">CFRunLoop</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Coordinating Access to Data.html">Coordinating Access to Data</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/LockProtected.html">LockProtected</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ReadWriteLock.html">ReadWriteLock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Coordination Primitives.html">Coordination Primitives</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/DispatchLock.html">DispatchLock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/SpinLock.html">SpinLock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/CASSpinLock.html">CASSpinLock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/PThreadReadWriteLock.html">PThreadReadWriteLock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <a href='#deferred' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='deferred'>Deferred</h1>
+
+<p>Deferred lets you work with values that haven&rsquo;t been determined yet, like an array that&rsquo;s coming later (one day!) from a web service call. It was originally inspired by <a href="https://ocaml.janestreet.com/ocaml-core/111.25.00/doc/async_kernel/#Deferred">OCaml&rsquo;s Deferred</a> library.</p>
+<a href='#vital-statistics' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='vital-statistics'>Vital Statistics</h3>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://swift.org"><img src="https://img.shields.io/badge/swift-2.3-EF5138.svg?" alt="Swift 2.3 supported"></a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/bignerdranch/Deferred/blob/master/LICENSE.txt"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Under MIT License"></a></td>
+</tr>
+<tr>
+<td><img src="https://img.shields.io/cocoapods/p/BNRDeferred.svg" alt="iOS, OS X, tvOS, and watchOS"></td>
+</tr>
+<tr>
+<td><a href="https://cocoapods.org/pods/BNRDeferred"><img src="https://img.shields.io/cocoapods/v/BNRDeferred.svg" alt="&quot;BNRDeferred&quot; on CocoaPods"></a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg" alt="Carthage Compatible"></a></td>
+</tr>
+</tbody></table>
+<a href='#table-of-contents' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='table-of-contents'>Table of Contents</h2>
+
+<!-- Hi there, readme editor! You look nice today. -->
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<ul>
+<li><a href="#intuition">Intuition</a>
+
+<ul>
+<li><a href="#gotcha-no-double-stuffed-deferreds">Gotcha: No Double-Stuffed <code>Deferred</code>s</a></li>
+</ul></li>
+<li><a href="#why-deferred">Why Deferred?</a>
+
+<ul>
+<li><a href="#async-programming-with-callbacks-is-bad-news">Async Programming with Callbacks Is Bad News</a></li>
+<li><a href="#enter-deferred">Enter Deferred</a></li>
+<li><a href="#more-than-just-a-callback">More Than Just a Callback</a></li>
+</ul></li>
+<li><a href="#basic-tasks">Basic Tasks</a>
+
+<ul>
+<li><a href="#vending-a-future-value">Vending a Future Value</a></li>
+<li><a href="#taking-action-when-a-future-is-filled">Taking Action when a Future Is Filled</a></li>
+<li><a href="#peeking-at-the-current-value">Peeking at the Current Value</a></li>
+<li><a href="#blocking-on-fulfillment">Blocking on Fulfillment</a></li>
+<li><a href="#sequencing-deferreds">Sequencing Deferreds</a></li>
+<li><a href="#combining-deferreds">Combining Deferreds</a></li>
+<li><a href="#cancellation">Cancellation</a></li>
+</ul></li>
+<li><a href="#mastering-the-future-type">Mastering The <code>Future</code> Type</a>
+
+<ul>
+<li><a href="#read-only-views">Read-Only Views</a></li>
+<li><a href="#other-patterns">Other Patterns</a></li>
+</ul></li>
+<li><a href="#getting-started">Getting Started</a>
+
+<ul>
+<li><a href="#carthage">Carthage</a></li>
+<li><a href="#cocoapods">CocoaPods</a></li>
+<li><a href="#swift-package-manager">Swift Package Manager</a></li>
+</ul></li>
+<li><a href="#further-information">Further Information</a></li>
+</ul>
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<a href='#intuition' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='intuition'>Intuition</h2>
+
+<p>A <code>Deferred&lt;Value&gt;</code> is a value that might be unknown now but is expected to resolve to a definite <code>Value</code> at some time in the future. It is resolved by being <q>filled</q> with a <code>Value</code>.</p>
+
+<p>A <code>Deferred&lt;Value&gt;</code> represents a <code>Value</code>. If you just want to work with the eventual <code>Value</code>, use <code>upon</code>. If you want to produce an <code>OtherValue</code> future from a <code>Deferred&lt;Value&gt;</code>, check out <code>map</code> and <code>flatMap</code>.</p>
+
+<p>You can wait for an array of values to resolve with <code>CollectionType.joinedValues</code>, or just take the first one to resolve with <code>SequenceType.earliestFilled</code>. (<code>joinedValues</code> for just a handful of futures is so common, there&rsquo;s a few versions <code>FutureType.and</code> to save you the trouble of putting them in an array.)</p>
+<a href='#gotcha-no-double-stuffed-code-deferred-code-s' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='gotcha-no-double-stuffed-code-deferred-code-s'>Gotcha: No Double-Stuffed <code>Deferred</code>s</h4>
+
+<p>It&rsquo;s a no-op to <code>fill</code> an already-<code>fill</code>ed <code>Deferred</code>. Use <code>fill(_:assertIfFilled:)</code> if you want to treat this as an error.</p>
+<a href='#why-deferred' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='why-deferred'>Why Deferred?</h2>
+
+<p>If you&rsquo;re a computer, people are really slow. And networks are REALLY slow.</p>
+<a href='#async-programming-with-callbacks-is-bad-news' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='async-programming-with-callbacks-is-bad-news'>Async Programming with Callbacks Is Bad News</h3>
+
+<p>The standard solution to this in Cocoaland is writing async methods with
+a callback, either to a delegate or a completion block.</p>
+
+<p>Async programming with callbacks rapidly descends into callback hell:
+you&rsquo;re transforming your program into what amounts to a series of
+gotos. This is hard to understand, hard to reason about, and hard to
+debug.</p>
+<a href='#enter-deferred' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enter-deferred'>Enter Deferred</h3>
+
+<p>When you&rsquo;re writing synchronous code,
+you call a function, you get a return value,
+you work with that return value:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">friends</span> <span class="o">=</span> <span class="nf">getFriends</span><span class="p">(</span><span class="nv">forUser</span><span class="p">:</span> <span class="n">jimbob</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">names</span> <span class="o">=</span> <span class="n">friends</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span>
+<span class="n">dataSource</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">names</span>
+<span class="n">tableView</span><span class="o">.</span><span class="nf">reloadData</span><span class="p">()</span>
+</code></pre>
+
+<p>Deferred enables this comfortable linear flow for async programming:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">friends</span> <span class="o">=</span> <span class="nf">fetchFriends</span><span class="p">(</span><span class="nv">forUser</span><span class="p">:</span> <span class="n">jimbob</span><span class="p">)</span>
+<span class="n">friends</span><span class="o">.</span><span class="n">upon</span> <span class="p">{</span> <span class="n">friends</span> <span class="k">in</span>
+    <span class="k">let</span> <span class="nv">names</span> <span class="o">=</span> <span class="n">friends</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">dataSource</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">names</span>
+    <span class="n">tableView</span><span class="o">.</span><span class="nf">reloadData</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>A <code>Deferred&lt;Value&gt;</code> is a <code>Value</code> whose value is unknown till some future time.
+The method passed to <code>upon</code> gets run once the value becomes known.</p>
+<a href='#more-than-just-a-callback' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='more-than-just-a-callback'>More Than Just a Callback</h3>
+
+<p>You might be thinking, <q>Wait! That&rsquo;s just a callback!</q> You got me: <code>upon</code> is indeed a callback: the closure gets the <code>Value</code> that the <code>Deferred</code> was determined to represent and can work with it.</p>
+
+<p>Where <code>Deferred</code> shines is the situations where callbacks make you
+want to run screaming. Like, say, chaining async calls, or fork–join
+of calls. What if getting a friend&rsquo;s name also required a remote call?
+We&rsquo;d want to do this:</p>
+
+<ul>
+<li>Fetch jimbob&rsquo;s friends</li>
+<li>For each friend, fetch their name</li>
+<li>Once you have all the friends&rsquo; names, now update the data source
+and reload the table view.</li>
+</ul>
+
+<p>This gets really messy with callbacks. But with <code>Deferred</code>, it&rsquo;s just:</p>
+<pre class="highlight swift"><code><span class="c1">// Let's use type annotations to make it easier to see what's going on here.</span>
+<span class="k">let</span> <span class="nv">friends</span><span class="p">:</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Friend</span><span class="p">]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">fetchFriends</span><span class="p">(</span><span class="nv">forUser</span><span class="p">:</span> <span class="n">jimbob</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">names</span><span class="p">:</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Name</span><span class="p">]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">friends</span><span class="o">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="p">(</span><span class="nv">friends</span><span class="p">:</span> <span class="p">[</span><span class="kt">Friend</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Name</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">in</span>
+    <span class="c1">// fork: get an array of not-yet-determined names</span>
+    <span class="k">let</span> <span class="nv">names</span><span class="p">:</span> <span class="p">[</span><span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Name</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">=</span> <span class="n">friends</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="kt">AsynchronousCall</span><span class="p">(</span><span class="o">.</span><span class="kt">Name</span><span class="p">,</span> <span class="nv">friend</span><span class="p">:</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
+
+    <span class="c1">// join: get a not-yet-determined array of now-determined names</span>
+    <span class="k">return</span> <span class="n">names</span><span class="o">.</span><span class="n">joinedValues</span>
+<span class="p">}</span>
+
+<span class="n">names</span><span class="o">.</span><span class="n">upon</span> <span class="p">{</span> <span class="p">(</span><span class="nv">names</span><span class="p">:</span> <span class="p">[</span><span class="kt">Name</span><span class="p">])</span> <span class="k">in</span>
+    <span class="c1">// names has been determined - use it!</span>
+    <span class="n">dataSource</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">names</span>
+    <span class="n">tableView</span><span class="o">.</span><span class="nf">reloadData</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre>
+<a href='#basic-tasks' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='basic-tasks'>Basic Tasks</h2>
+<a href='#vending-a-future-value' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='vending-a-future-value'>Vending a Future Value</h3>
+<pre class="highlight swift"><code><span class="c1">// Potentially long-running operation.</span>
+<span class="kd">func</span> <span class="nf">performOperation</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// 1. Create deferred.</span>
+    <span class="k">let</span> <span class="nv">deferred</span> <span class="o">=</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
+
+    <span class="c1">// 2. Kick off asynchronous code that will eventually…</span>
+    <span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="cm">/* … */</span>
+    <span class="nf">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="nf">compute_result</span><span class="p">()</span>
+
+        <span class="c1">// 3. … fill the deferred in with its value</span>
+        <span class="n">deferred</span><span class="o">.</span><span class="nf">fill</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 4. Return the (currently still unfilled) deferred</span>
+    <span class="k">return</span> <span class="n">deferred</span>
+<span class="p">}</span>
+</code></pre>
+<a href='#taking-action-when-a-future-is-filled' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='taking-action-when-a-future-is-filled'>Taking Action when a Future Is Filled</h3>
+
+<p><a name="upon"></a></p>
+
+<p>You can use the <code>upon(_:body:)</code> method to run a closure once the <code>Deferred</code> has been filled. <code>upon(_:body:)</code> can be called multiple times, and the closures will be called in the order they were supplied to <code>upon(_:body:)</code>.</p>
+
+<p>By default, <code>upon(_:)</code> will run the closures on a background concurrent GCD queue. You can change this by passing a different queue when by using the full <code>upon(_:body:)</code> method to specify a queue for the closure.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">deferredResult</span> <span class="o">=</span> <span class="nf">performOperation</span><span class="p">()</span>
+
+<span class="n">deferredResult</span><span class="o">.</span><span class="n">upon</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"got </span><span class="se">\(</span><span class="n">result</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<a href='#peeking-at-the-current-value' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='peeking-at-the-current-value'>Peeking at the Current Value</h3>
+
+<p>Use the <code>peek()</code> method to determine whether or not the <code>Deferred</code> is currently
+filled.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">deferredResult</span> <span class="o">=</span> <span class="nf">performOperation</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">deferredResult</span><span class="o">.</span><span class="nf">peek</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"filled with </span><span class="se">\(</span><span class="n">result</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"currently unfilled"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<a href='#blocking-on-fulfillment' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='blocking-on-fulfillment'>Blocking on Fulfillment</h3>
+
+<p>Use the <code>wait(_:)</code> method to wait for a <code>Deferred</code> to be filled, and return the value.</p>
+
+<p>The <code>wait(_:)</code> method supports a few timeout values, including an arbitrary number of seconds.</p>
+<pre class="highlight swift"><code><span class="c1">// WARNING: Blocks the calling thread!</span>
+<span class="k">let</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="nf">performOperation</span><span class="p">()</span><span class="o">.</span><span class="nf">wait</span><span class="p">(</span><span class="o">.</span><span class="kt">Forever</span><span class="p">)</span><span class="o">!</span>
+</code></pre>
+<a href='#sequencing-deferreds' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='sequencing-deferreds'>Sequencing Deferreds</h3>
+
+<p>Monadic <code>map</code> and <code>flatMap</code> are available to chain <code>Deferred</code> results. For example, suppose you have a method that asynchronously reads a string, and you want to call <code>Int.init(_:)</code> on that string:</p>
+<pre class="highlight swift"><code><span class="c1">// Producer</span>
+<span class="kd">func</span> <span class="nf">readString</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">deferredResult</span> <span class="o">=</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="c1">// dispatch_async something to fill deferredResult…</span>
+    <span class="k">return</span> <span class="n">deferredResult</span>
+<span class="p">}</span>
+
+<span class="c1">// Consumer</span>
+<span class="k">let</span> <span class="nv">deferredInt</span><span class="p">:</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">?</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nf">readString</span><span class="p">()</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="kt">Int</span><span class="p">(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
+</code></pre>
+
+<p><code>map(upon:_:)</code> and <code>flatMap(upon:_:)</code>, like <code>upon(_:body:)</code>, execute on a concurrent background thread by default (once the instance has been filled). The <code>upon</code> peramater is if you want to specify the GCD queue as the consumer.</p>
+<a href='#combining-deferreds' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='combining-deferreds'>Combining Deferreds</h3>
+
+<p>There are three functions available for combining multiple <code>Deferred</code> instances:</p>
+<pre class="highlight swift"><code><span class="c1">// MARK: and</span>
+
+<span class="c1">// `and` creates a new future that is filled once both inputs are available:</span>
+<span class="k">let</span> <span class="nv">d1</span><span class="p">:</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="cm">/* … */</span>
+<span class="k">let</span> <span class="nv">d2</span><span class="p">:</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="cm">/* … */</span>
+<span class="k">let</span> <span class="nv">dBoth</span><span class="p">:</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">d1</span><span class="o">.</span><span class="nf">and</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+
+<span class="c1">// MARK: joinedValues</span>
+
+<span class="c1">// `joinedValues` creates a new future that is filled once all inputs are available.</span>
+<span class="c1">// All of the input Deferreds must contain the same type.</span>
+<span class="k">var</span> <span class="nv">deferreds</span><span class="p">:</span> <span class="p">[</span><span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="o">..&lt;</span> <span class="mi">10</span> <span class="p">{</span>
+    <span class="n">deferreds</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="cm">/* … */</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Once all 10 input deferreds are filled, the item at index `i` in the array passed to `upon` will contain the result of `deferreds[i]`.</span>
+<span class="k">let</span> <span class="nv">allDeferreds</span><span class="p">:</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Int</span><span class="p">]</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">deferreds</span><span class="o">.</span><span class="n">joinedValues</span>
+
+<span class="c1">// MARK: earliestFilled</span>
+
+<span class="c1">// `earliestFilled` creates a new future that is filled once any one of its inputs is available.</span>
+<span class="c1">// If multiple inputs become available simultaneously, no guarantee is made about which will be selected.</span>
+<span class="c1">// Once any one of the 10 inputs is filled, `anyDeferred` will be filled with that value.</span>
+<span class="k">let</span> <span class="nv">anyDeferred</span><span class="p">:</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">deferreds</span><span class="o">.</span><span class="n">earliestFilled</span>
+</code></pre>
+<a href='#cancellation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cancellation'>Cancellation</h3>
+
+<p>Cancellation gets pretty ugly with callbacks.
+You often have to fork a bunch of, <q>Wait, has this been cancelled?</q>
+checks throughout your code.</p>
+
+<p>With <code>Deferred</code>, it&rsquo;s nothing special:
+You resolve the <code>Deferred</code> to a default value,
+and all the work waiting for your <code>Deferred</code> to resolve
+is unchanged. It&rsquo;s still a <code>Value</code>, whatever its provenance.
+This is the power of regarding a <code>Deferred&lt;Value&gt;</code> as just a <code>Value</code> that
+hasn&rsquo;t quite been nailed down yet.</p>
+
+<p>That solves cancellation for consumers of the value.
+But generally you have some value-producer work you&rsquo;d like to abort
+on cancellation, like stopping a web request that&rsquo;s in flight.
+To do this, the producer adds an <code>upon</code> closure to the <code>Deferred&lt;Value&gt;</code>
+before vending it to your API consumer.
+This closure is responsible for aborting the operation if needed.
+Now, if someone defaults the <code>Deferred&lt;Value&gt;</code> to some <code>Value</code>,
+the <code>upon</code> closure will run and cancel the in-flight operation.</p>
+
+<p>Let&rsquo;s look at cancelling our <code>fetchFriends(forUser:)</code> request:</p>
+<pre class="highlight swift"><code><span class="c1">// MARK: - Client</span>
+
+<span class="kd">extension</span> <span class="kt">FriendsViewController</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">friends</span><span class="p">:</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">?</span>
+
+    <span class="kd">func</span> <span class="nf">refreshFriends</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">friends</span> <span class="o">=</span> <span class="nf">fetchFriends</span><span class="p">(</span><span class="nv">forUser</span><span class="p">:</span> <span class="n">jimbob</span><span class="p">)</span>
+        <span class="n">friends</span><span class="o">.</span><span class="n">upon</span> <span class="p">{</span> <span class="n">friends</span> <span class="k">in</span>
+            <span class="k">let</span> <span class="nv">names</span> <span class="o">=</span> <span class="n">friends</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span>
+            <span class="n">dataSource</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">names</span>
+            <span class="n">tableView</span><span class="o">.</span><span class="nf">reloadData</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="cm">/* Stash the `Deferred&lt;Value&gt;` for defaulting later. */</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">friends</span> <span class="o">=</span> <span class="n">friends</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">cancelFriends</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">friends</span><span class="p">?</span><span class="o">.</span><span class="nf">fill</span><span class="p">([])</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="c1">// MARK: - Producer</span>
+
+<span class="kd">func</span> <span class="nf">fetchFriends</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">user</span><span class="p">:</span> <span class="kt">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Friend</span><span class="p">]</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">deferredFriends</span> <span class="o">=</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Friend</span><span class="p">]</span><span class="o">&gt;</span><span class="p">()</span>
+    <span class="k">let</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">NSURLSession</span> <span class="o">=</span> <span class="cm">/* … */</span>
+    <span class="k">let</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span> <span class="o">=</span> <span class="cm">/* … */</span>
+    <span class="k">let</span> <span class="nv">task</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="nf">dataTaskWithRequest</span><span class="p">(</span><span class="n">request</span><span class="p">)</span> <span class="p">{</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span> <span class="k">in</span>
+        <span class="k">let</span> <span class="nv">friends</span><span class="p">:</span> <span class="p">[</span><span class="kt">Friend</span><span class="p">]</span> <span class="o">=</span> <span class="nf">parseFriends</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+        <span class="c1">// fillIfUnfulfilled since we might be racing with another producer</span>
+        <span class="c1">// to fill this value</span>
+        <span class="n">deferredFriends</span><span class="o">.</span><span class="nf">fillIfUnfulfilled</span><span class="p">(</span><span class="n">friends</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// arrange to cancel on fill</span>
+    <span class="n">deferredFriends</span><span class="o">.</span><span class="n">upon</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="n">task</span><span class="p">]</span> <span class="n">_</span> <span class="k">in</span>
+        <span class="n">task</span><span class="p">?</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="c1">// start the operation that will eventually resolve the deferred value</span>
+    <span class="n">task</span><span class="o">.</span><span class="nf">resume</span><span class="p">()</span>
+
+    <span class="c1">// finally, pass the deferred value to the caller</span>
+    <span class="k">return</span> <span class="n">deferredFriends</span>
+<span class="p">}</span>
+</code></pre>
+<a href='#mastering-the-code-future-code-type' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='mastering-the-code-future-code-type'>Mastering The <code>Future</code> Type</h2>
+
+<p>Deferred is designed to scale with the fundamentals you see above. Large applications can be built using just <code>Deferred</code> and its <code>upon</code> and <code>fill</code> methods.</p>
+<a href='#read-only-views' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='read-only-views'>Read-Only Views</h3>
+
+<p>It sometimes just doesn&rsquo;t make <em>sense</em> to be able to <code>fill</code> something; if you have a <code>Deferred</code> wrapping <code>UIApplication</code>&rsquo;s push notification token, what does it mean if someone in your codebase calls <code>fill</code> on it?</p>
+
+<p>You may have noticed that anybody can call <code>upon</code> on a <code>Deferred</code> type; this is fundamental. But the same is true of <code>fill</code>, and this may be a liability as different pieces of code interact with each other. How can we make it <strong>read-only</strong>?</p>
+
+<p>For this reason, Deferred is split into <code>FutureType</code> and <code>PromiseType</code>, both protocols the <code>Deferred</code> type conforms to. You can think of these as the <q>reading</q> and <q>writing</q> sides of a deferred value; a future can only be <code>upon</code>ed, and a promise can only be <code>fill</code>ed.</p>
+
+<p>Deferred also provides the <code>Future</code> type, a wrapper for anything that&rsquo;s a <code>FutureType</code> much like the Swift standard library&rsquo;s <code>Any</code> types. You can use it protectively to make a <code>Deferred</code> read-only. Reconsider the example from above:</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">FriendsViewController</span> <span class="p">{</span>
+
+    <span class="c1">// `FriendsViewController` is the only of the `Deferred` in its</span>
+    <span class="c1">// `PromiseType` role, and can use it as it pleases.</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">friends</span><span class="p">:</span> <span class="kt">Deferred</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">?</span>
+
+    <span class="c1">// Now this method can vend a `Future` and not worry about the</span>
+    <span class="c1">// rules of accessing its private `Deferred`.</span>
+    <span class="kd">func</span> <span class="nf">refreshFriends</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Friend</span><span class="p">]</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">friends</span> <span class="o">=</span> <span class="nf">fetchFriends</span><span class="p">(</span><span class="nv">forUser</span><span class="p">:</span> <span class="n">jimbob</span><span class="p">)</span>
+        <span class="n">friends</span><span class="o">.</span><span class="n">upon</span> <span class="p">{</span> <span class="n">friends</span> <span class="k">in</span>
+            <span class="k">let</span> <span class="nv">names</span> <span class="o">=</span> <span class="n">friends</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">name</span> <span class="p">}</span>
+            <span class="n">dataSource</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">names</span>
+            <span class="n">tableView</span><span class="o">.</span><span class="nf">reloadData</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="cm">/* Stash the `Deferred&lt;Value&gt;` for defaulting later. */</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">friends</span> <span class="o">=</span> <span class="n">friends</span>
+
+        <span class="k">return</span> <span class="kt">Future</span><span class="p">(</span><span class="n">friends</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">cancelFriends</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">friends</span><span class="p">?</span><span class="o">.</span><span class="nf">fill</span><span class="p">([])</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>Use of the <code>Future</code> type isn&rsquo;t only defensive, it encapsulates and hides implementation details.</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">FriendsStore</span> <span class="p">{</span>
+
+    <span class="c1">// dependency, injected later on</span>
+    <span class="k">var</span> <span class="nv">context</span><span class="p">:</span> <span class="kt">NSManagedObjectContext</span><span class="p">?</span>
+
+    <span class="kd">func</span> <span class="nf">getLocalFriends</span><span class="p">(</span><span class="n">forUser</span> <span class="nv">user</span><span class="p">:</span> <span class="kt">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Future</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">Friend</span><span class="p">]</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">context</span> <span class="o">=</span> <span class="n">context</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// a future can be created with an immediate value, allowing the benefits</span>
+            <span class="c1">// of Deferred's design even if values are available already (consider a</span>
+            <span class="c1">// stub object, for instance).</span>
+            <span class="k">return</span> <span class="kt">Future</span><span class="p">([])</span>
+        <span class="p">}</span>
+
+        <span class="k">let</span> <span class="nv">predicate</span><span class="p">:</span> <span class="kt">NSPredicate</span> <span class="o">=</span> <span class="cm">/* … */</span>
+
+        <span class="k">return</span> <span class="kt">Friend</span><span class="o">.</span><span class="nf">findAll</span><span class="p">(</span><span class="nv">matching</span><span class="p">:</span> <span class="n">predicate</span><span class="p">,</span> <span class="nv">inContext</span><span class="p">:</span> <span class="n">context</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<a href='#other-patterns' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-patterns'>Other Patterns</h3>
+
+<p>As a codebase or team using Deferred gets larger, it may become important to reduce repetition and noise.</p>
+
+<p>Deferred&rsquo;s abstractions can be extended using protocols. <a href="http://bignerdranch.github.io/Deferred/Protocols/FutureType.html"><code>FutureType</code></a> gives you all the power of the <code>Deferred</code> type on anything you build.</p>
+
+<p>An example algorithm, included in Deferred, is the <code>IgnoringFuture</code>. Simply call <code>ignored()</code> to create a future that gets <q>filled</q> with <code>Void</code>:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">whenFriendsAreLoaded</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">IgnoringFuture</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="n">deferredFriends</span><span class="o">.</span><span class="nf">ignored</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This method erases the <code>Value</code> of the <code>Deferred</code> without the boilerplate of creating a new <code>Deferred&lt;Void&gt;</code> and having to wait on an <code>upon</code>.</p>
+
+<p>The <a href="http://bignerdranch.github.io/Deferred/Protocols/ExecutorType.html"><code>ExecutorType</code></a> protocol allows changing the behavior of an <code>upon</code> call, and any derived algorithm such as <code>map</code> or <code>flatMap</code>. If your app isn&rsquo;t using a <code>dispatch_queue_t</code> directly, this allows you to adapt other asynchronous mechanisms like <code>NSManagedObjectContext.performBlock(_:)</code> fors Deferred.</p>
+<a href='#getting-started' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting-started'>Getting Started</h2>
+
+<p>Deferred is designed to be used as an embedded framework, which requires a minimum deployment target of iOS 8 or macOS 10.10. Embedding through any other means may work, but is not officially supported.</p>
+
+<p>Linux is not yet supported.</p>
+
+<p>There are a few different options to install Deferred.</p>
+<a href='#carthage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='carthage'>Carthage</h3>
+
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized, hands-off package manager built in Swift.</p>
+
+<p>Add the following to your Cartfile:</p>
+<pre class="highlight plaintext"><code>github "bignerdranch/Deferred" ~&gt; 2.0
+</code></pre>
+
+<p>Then run <code>carthage update</code>.</p>
+
+<p>Follow the current instructions in <a href="https://github.com/Carthage/Carthage/blob/master/README.md">Carthage&rsquo;s README</a>
+for up to date installation instructions.</p>
+<a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>CocoaPods</h3>
+
+<p><a href="https://cocoapods.org">CocoaPods</a> is a popular, Ruby-inspired Cocoa package manager.</p>
+
+<p>Add the following to your <a href="http://guides.cocoapods.org/using/the-podfile.html">Podfile</a>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'BNRDeferred'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0'</span>
+</code></pre>
+
+<p>You will also need to make sure you&rsquo;re opting into using frameworks:</p>
+<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
+</code></pre>
+
+<p>Then run <code>pod install</code>.</p>
+<a href='#swift-package-manager' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='swift-package-manager'>Swift Package Manager</h3>
+
+<p>We include provisional support for <a href="https://swift.org/package-manager/">Swift Package Manager</a> on the 2.x toolchain.</p>
+
+<p>Add us to your <code>Package.swift</code>:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">PackageDescription</span>
+
+<span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
+    <span class="nv">name</span><span class="p">:</span> <span class="s">"My Extremely Nerdy App"</span><span class="p">,</span>
+    <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/bignerdranch/Deferred.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre>
+<a href='#further-information' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='further-information'>Further Information</h2>
+
+<p>For further info, please refer to comments in the module interface or <a href="http://bignerdranch.github.io/Deferred/">the documentation</a>.</p>
+
+<p>If you have a question not answered by this README or the comments, please open an issue!</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>© 2014-2016 <a class="link" href="//www.bignerdranch.com" target="_blank" rel="external">Big Nerd Ranch</a> under <a class="link" href="//github.com/bignerdranch/Deferred/blob/master/LICENSE.txt" target="_blank" rel="external">MIT license</a>.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
