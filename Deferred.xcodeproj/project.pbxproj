@@ -597,9 +597,11 @@
 				TargetAttributes = {
 					DB6ADFD21C237DD500D77BF1 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					DB6ADFDC1C237DD500D77BF1 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					DB6ADFF11C237DF800D77BF1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -611,12 +613,15 @@
 					};
 					DB6AE00D1C237E0400D77BF1 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					DB6AE0161C237E0400D77BF1 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					DB6AE0291C237E1300D77BF1 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
